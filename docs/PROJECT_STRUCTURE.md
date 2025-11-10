@@ -1,479 +1,226 @@
-# 📁 Project Structure
+# 📁 Organized Project Structure
 
-Complete overview of the Filter Card Component project organization.
+The project has been reorganized into a clean, logical folder structure.
+
+## 📂 Folder Structure
 
 ```
 Zededa-MCP-explorations/
 │
-├── 🎨 COMPONENT FILES (Core Implementation)
-│   ├── FilterCard.tsx              # Main React component (220 lines)
-│   │   ├── TypeScript interfaces
-│   │   ├── Icon components (4 SVGs)
-│   │   ├── FilterCard component
-│   │   ├── State management
-│   │   ├── Event handlers
-│   │   └── Accessibility support
-│   │
-│   └── FilterCard.module.css       # Component styles (210 lines)
-│       ├── Card states (default/hover/selected)
-│       ├── Semantic color classes
-│       ├── Ripple animation
-│       ├── Responsive design
-│       └── Accessibility features
+├── 📄 Root Files (Essential)
+│   ├── README.md                    # Main project documentation
+│   ├── notes.md                     # Original task specification
+│   ├── package.json                 # Dependencies and scripts
+│   ├── package-lock.json            # Locked dependency versions
+│   ├── tsconfig.json                # TypeScript configuration
+│   ├── tsconfig.node.json           # Node TypeScript config
+│   ├── vite.config.ts               # Vite build configuration
+│   ├── index.html                   # Main HTML entry point
+│   └── .gitignore                   # Git ignore rules
 │
-├── 🎪 DEMO & TESTING
-│   ├── Demo.tsx                    # Interactive demo page (220 lines)
-│   │   ├── Multiple card examples
-│   │   ├── State management demo
-│   │   ├── Event logging
-│   │   ├── Documentation sections
-│   │   └── Usage examples
-│   │
-│   ├── Demo.css                    # Demo page styles (430 lines)
-│   │   ├── Layout styles
-│   │   ├── Grid system
-│   │   ├── Event log styling
-│   │   └── Responsive design
-│   │
-│   ├── main.tsx                    # App entry point (8 lines)
-│   │   └── React root rendering
-│   │
-│   └── index.html                  # HTML template (18 lines)
-│       ├── Meta tags
-│       ├── DM Sans font import
-│       └── Root div
+├── 📚 docs/ (Documentation)
+│   ├── START_HERE.md                # First-time user guide
+│   ├── QUICKSTART.md                # 3-minute quick start
+│   ├── EXAMPLES.md                  # Usage examples
+│   ├── CHEATSHEET.md                # Quick reference
+│   ├── COMPONENT_SPEC.md            # Technical specifications
+│   ├── INSTALLATION_GUIDE.md        # Installation instructions
+│   ├── STORYBOOK_SETUP.md           # Storybook setup guide
+│   ├── STORYBOOK_COMPLETE.md        # Storybook completion summary
+│   ├── DEPLOY_GITHUB_PAGES.md       # GitHub Pages deployment
+│   ├── DEPLOYMENT_STATUS.md         # Deployment status
+│   ├── TROUBLESHOOTING_DEPLOYMENT.md # Deployment troubleshooting
+│   ├── PROJECT_SUMMARY.md           # Project overview
+│   ├── PROJECT_STRUCTURE.md         # Old structure document
+│   └── COMPLETION_REPORT.md         # Final report
 │
-├── ⚙️ CONFIGURATION FILES
-│   ├── package.json                # Dependencies & scripts
-│   │   ├── React 18.2
-│   │   ├── TypeScript 5.2
-│   │   ├── Vite 5.0
-│   │   └── NPM scripts
-│   │
-│   ├── tsconfig.json               # TypeScript config
-│   │   ├── Strict mode
-│   │   ├── ES2020 target
-│   │   └── Type checking options
-│   │
-│   ├── tsconfig.node.json          # Node TypeScript config
-│   │   └── Vite configuration
-│   │
-│   ├── vite.config.ts              # Vite build config
-│   │   ├── React plugin
-│   │   └── Dev server settings
-│   │
-│   └── .gitignore                  # Git ignore rules
-│       ├── node_modules/
-│       ├── dist/
-│       └── IDE files
+├── 🎨 src/ (Source Code)
+│   ├── FilterCard.tsx               # Main component
+│   ├── FilterCard.module.css        # Component styles
+│   ├── Demo.tsx                     # Demo application
+│   ├── Demo.css                     # Demo styling
+│   ├── main.tsx                     # App entry point
+│   └── stories/                     # Storybook stories
+│       ├── FilterCard.stories.tsx   # Component stories
+│       └── Introduction.mdx         # Storybook intro page
 │
-├── 📚 DOCUMENTATION
-│   ├── README.md                   # Complete documentation (400 lines)
-│   │   ├── Features overview
-│   │   ├── Installation guide
-│   │   ├── API reference
-│   │   ├── Design tokens
-│   │   ├── Accessibility info
-│   │   └── Examples
-│   │
-│   ├── QUICKSTART.md               # Quick start guide (80 lines)
-│   │   ├── 3-step setup
-│   │   ├── Basic example
-│   │   ├── Available scripts
-│   │   └── Next steps
-│   │
-│   ├── COMPONENT_SPEC.md           # Technical specs (500 lines)
-│   │   ├── Requirements checklist
-│   │   ├── Figma design mapping
-│   │   ├── Implementation details
-│   │   ├── Accessibility features
-│   │   └── File references
-│   │
-│   ├── EXAMPLES.md                 # Usage examples (650 lines)
-│   │   ├── Basic usage
-│   │   ├── Dashboard integration
-│   │   ├── Single/multi selection
-│   │   ├── Router integration
-│   │   ├── API integration
-│   │   ├── Event handling
-│   │   ├── Grid layouts
-│   │   └── Testing examples
-│   │
-│   ├── PROJECT_SUMMARY.md          # Project summary
-│   │   ├── Deliverables list
-│   │   ├── Requirements status
-│   │   ├── Features implemented
-│   │   ├── Quality metrics
-│   │   └── Success indicators
-│   │
-│   └── PROJECT_STRUCTURE.md        # This file
-│       └── Project organization
+├── 🌐 public/ (Public Assets)
+│   ├── index.html                   # HTML template (old location)
+│   └── global.css                   # Global styles (Material Symbols)
 │
-└── 📝 ORIGINAL REQUIREMENTS
-    └── notes.md                    # Original task specification
-        ├── Figma link
-        ├── Core functionality
-        ├── Required interactions
-        └── Technical requirements
+├── 🔧 scripts/ (Automation Scripts)
+│   ├── SETUP_STORYBOOK.sh           # Storybook setup script
+│   └── RUN_AFTER_NODEJS_INSTALL.sh  # Initial setup script
+│
+├── ⚙️ .storybook/ (Storybook Config)
+│   ├── main.ts                      # Storybook configuration
+│   └── preview.ts                   # Global settings
+│
+├── 🚀 .github/ (GitHub Actions)
+│   └── workflows/
+│       └── deploy-storybook.yml     # Auto-deployment workflow
+│
+└── 📦 node_modules/                 # Dependencies (not in git)
 ```
 
----
+## 🎯 Organization Logic
 
-## 📊 Statistics
+### 📁 **Root Directory**
+**Purpose**: Essential configuration files and main documentation  
+**Files**: Only critical files that tools expect at root level
 
-### File Count by Type
-```
-TypeScript/TSX:     4 files  (~450 lines)
-CSS:                2 files  (~640 lines)
-Configuration:      5 files  (~150 lines)
-Documentation:      6 files  (~2,100 lines)
-HTML:               1 file   (~18 lines)
-────────────────────────────────────────
-Total:             18 files  (~3,358 lines)
-```
+### 📚 **docs/**
+**Purpose**: All documentation and guides  
+**Contents**: 
+- Setup guides
+- API documentation
+- Usage examples
+- Troubleshooting guides
+- Project summaries
 
-### Code Distribution
-```
-Component Logic:    220 lines  (6.6%)
-Component Styles:   210 lines  (6.3%)
-Demo Logic:         220 lines  (6.6%)
-Demo Styles:        430 lines  (12.8%)
-Configuration:      150 lines  (4.5%)
-Documentation:    2,100 lines  (62.5%)
-Other:              28 lines   (0.8%)
-```
+### 🎨 **src/**
+**Purpose**: All source code and components  
+**Contents**:
+- React components (`.tsx`)
+- Component styles (`.css`)
+- Demo application
+- Storybook stories
 
-### Documentation Coverage
-```
-API Documentation:       ✅ 100%
-Usage Examples:          ✅ 100%
-Technical Specs:         ✅ 100%
-Setup Instructions:      ✅ 100%
-Accessibility Docs:      ✅ 100%
-Code Comments:           ✅ 100%
-```
+### 🌐 **public/**
+**Purpose**: Static assets served as-is  
+**Contents**:
+- Global CSS
+- Fonts
+- Images (if any)
+- Public HTML templates
 
----
+### 🔧 **scripts/**
+**Purpose**: Automation and setup scripts  
+**Contents**:
+- Installation scripts
+- Setup automation
+- Build helpers
 
-## 🎯 Component Architecture
+### ⚙️ **.storybook/**
+**Purpose**: Storybook configuration  
+**Contents**:
+- Storybook settings
+- Addons configuration
+- Preview settings
 
-### FilterCard.tsx Structure
+### 🚀 **.github/**
+**Purpose**: GitHub-specific configuration  
+**Contents**:
+- GitHub Actions workflows
+- CI/CD pipelines
+- Automated deployments
+
+## 📊 File Count by Category
+
+| Category | Files | Purpose |
+|----------|-------|---------|
+| Documentation | 14 | Guides and references |
+| Source Code | 7 | Components and demos |
+| Configuration | 7 | Build and TypeScript config |
+| Scripts | 2 | Automation |
+| Storybook | 4 | Documentation framework |
+| GitHub Actions | 1 | Auto-deployment |
+
+## 🔍 Quick Navigation
+
+### For Users
+- **Getting Started**: `README.md` → `docs/START_HERE.md`
+- **Quick Setup**: `docs/QUICKSTART.md`
+- **Examples**: `docs/EXAMPLES.md`
+
+### For Developers
+- **Component Code**: `src/FilterCard.tsx`
+- **Component Styles**: `src/FilterCard.module.css`
+- **Technical Specs**: `docs/COMPONENT_SPEC.md`
+
+### For Deployment
+- **GitHub Pages**: `docs/DEPLOY_GITHUB_PAGES.md`
+- **Troubleshooting**: `docs/TROUBLESHOOTING_DEPLOYMENT.md`
+- **Workflow**: `.github/workflows/deploy-storybook.yml`
+
+### For Storybook
+- **Setup**: `docs/STORYBOOK_SETUP.md`
+- **Stories**: `src/stories/FilterCard.stories.tsx`
+- **Config**: `.storybook/main.ts`
+
+## 🎨 Benefits of This Structure
+
+### ✅ Clear Separation
+- Documentation separate from code
+- Scripts in dedicated folder
+- Public assets organized
+
+### ✅ Easy Navigation
+- Find files by purpose
+- Logical grouping
+- Scalable structure
+
+### ✅ Professional
+- Industry-standard layout
+- Framework conventions followed
+- Easy for new contributors
+
+### ✅ Maintainable
+- Clear responsibilities
+- Easy to extend
+- Simple to document
+
+## 🔄 Path Updates
+
+Files have been updated to reflect new structure:
+
+### Vite Configuration
 ```typescript
-┌─────────────────────────────────┐
-│       Icon Components           │
-│  ├── ErrorIcon                  │
-│  ├── EmojiObjectsIcon           │
-│  ├── ShowChartIcon              │
-│  └── WarningChartIcon           │
-├─────────────────────────────────┤
-│       Type Definitions          │
-│  ├── FilterCardType             │
-│  ├── FilterCardProps            │
-│  └── Ripple                     │
-├─────────────────────────────────┤
-│     FilterCard Component        │
-│  ├── State Management           │
-│  │   ├── isHovered              │
-│  │   ├── ripples                │
-│  │   └── cardRef                │
-│  ├── Helper Functions           │
-│  │   ├── getIcon()              │
-│  │   ├── getTypeClasses()       │
-│  │   └── createRipple()         │
-│  ├── Event Handlers             │
-│  │   ├── handleClick()          │
-│  │   └── handleKeyDown()        │
-│  └── JSX Render                 │
-│      ├── Card container         │
-│      ├── Icon container         │
-│      ├── Text container         │
-│      └── Ripple container       │
-└─────────────────────────────────┘
+// vite.config.ts
+publicDir: 'public'
+resolve: { alias: { '@': './src' } }
 ```
 
-### CSS Module Structure
-```css
-┌─────────────────────────────────┐
-│      Base Card Styles           │
-│  ├── .card (default)            │
-│  ├── .cardHover                 │
-│  └── .cardSelected              │
-├─────────────────────────────────┤
-│      Layout Styles              │
-│  ├── .content                   │
-│  ├── .iconContainer             │
-│  └── .textContainer             │
-├─────────────────────────────────┤
-│    Semantic Color Classes       │
-│  ├── .iconBgCritical            │
-│  ├── .iconBgAlert               │
-│  ├── .iconBgInfo                │
-│  └── .iconBgSuccess             │
-├─────────────────────────────────┤
-│      Typography                 │
-│  ├── .title                     │
-│  └── .subtitle                  │
-├─────────────────────────────────┤
-│      Animations                 │
-│  ├── .rippleContainer           │
-│  ├── .ripple                    │
-│  └── @keyframes rippleAnimation │
-└─────────────────────────────────┘
+### Import Paths
+```typescript
+// src/main.tsx
+import '../public/global.css'
+import Demo from './Demo'
 ```
+
+### Storybook
+```typescript
+// .storybook/preview.ts
+import '../public/global.css'
+```
+
+## 📝 Notes
+
+- `node_modules/` is in `.gitignore`
+- All paths are relative for portability
+- Configuration files remain at root (required by tools)
+- README stays at root for GitHub visibility
+- Package files at root (npm/yarn requirement)
+
+## 🎯 Future Expansion
+
+This structure is ready for:
+- ✅ Adding more components to `src/`
+- ✅ Adding more docs to `docs/`
+- ✅ Adding more scripts to `scripts/`
+- ✅ Adding tests (future `__tests__/` or `tests/` folder)
+- ✅ Adding more Storybook stories
+
+## 🚀 Everything Still Works!
+
+After reorganization:
+- ✅ `npm run dev` - Starts demo
+- ✅ `npm run build` - Builds project
+- ✅ `npm run storybook` - Starts Storybook
+- ✅ GitHub Actions deployment - Auto-deploys
+- ✅ All imports - Updated correctly
 
 ---
 
-## 🔄 Data Flow
-
-### User Interaction Flow
-```
-User Action (Click/Keyboard)
-          ↓
-   handleClick() / handleKeyDown()
-          ↓
-   ┌──────────────────┐
-   │  createRipple()  │ ← Visual feedback
-   └──────────────────┘
-          ↓
-   ┌──────────────────┐
-   │   onClick?.()    │ ← Parent callback
-   └──────────────────┘
-          ↓
-   Parent Component Updates
-          ↓
-   Selected State Changes
-          ↓
-   Component Re-renders
-```
-
-### State Management Flow
-```
-Parent Component
-    ↓ (props)
-FilterCard Component
-    ├── selected (controlled from parent)
-    ├── isHovered (internal state)
-    └── ripples (internal state)
-    ↓ (callbacks)
-Parent Component
-```
-
----
-
-## 🎨 Design Token System
-
-### Color Tokens
-```
-Background
-  ├── card-bg-default:    #2c2826
-  ├── card-bg-hover:      #332f2b
-  └── card-bg-selected:   #332f2b
-
-Semantic
-  ├── color-critical:     #ff7f7f
-  ├── color-alert:        #ffd86e
-  ├── color-info:         #6775e4
-  └── color-success:      #29cf8d
-
-Text
-  ├── text-primary:       #fffcfa
-  └── text-secondary:     #a7a7a7
-```
-
-### Spacing Tokens
-```
-Padding
-  ├── card-padding:       16px
-  └── icon-padding:       12px
-
-Gap
-  ├── content-gap:        12px
-  └── text-gap:           4px
-
-Border Radius
-  ├── card-radius:        8px
-  └── icon-radius:        4px
-```
-
-### Typography Tokens
-```
-Font Family
-  └── primary:            'DM Sans', sans-serif
-
-Title
-  ├── size:               16px
-  ├── line-height:        20px
-  └── weight:             400
-
-Subtitle
-  ├── size:               14px
-  ├── line-height:        16px
-  └── weight:             400
-```
-
----
-
-## 🚀 Build & Development
-
-### Available Commands
-```bash
-npm install         # Install dependencies
-npm run dev         # Start dev server (localhost:3000)
-npm run build       # Build for production
-npm run preview     # Preview production build
-npm run lint        # Run ESLint
-npm run type-check  # Check TypeScript types
-```
-
-### Development Workflow
-```
-1. Clone/Download Project
-       ↓
-2. npm install
-       ↓
-3. npm run dev
-       ↓
-4. Browser opens at localhost:3000
-       ↓
-5. Edit files (hot reload enabled)
-       ↓
-6. npm run build (when ready)
-       ↓
-7. Deploy dist/ folder
-```
-
----
-
-## 🔍 Key Files Quick Reference
-
-### Want to...
-
-**Use the component?**
-→ Copy `FilterCard.tsx` and `FilterCard.module.css`
-
-**See it in action?**
-→ Run `npm run dev` or check `Demo.tsx`
-
-**Understand how it works?**
-→ Read `COMPONENT_SPEC.md` and code comments
-
-**Learn usage patterns?**
-→ Read `EXAMPLES.md`
-
-**Get started quickly?**
-→ Read `QUICKSTART.md`
-
-**Read full docs?**
-→ Read `README.md`
-
-**Customize colors?**
-→ Edit `FilterCard.module.css` (lines 65-77)
-
-**Change behavior?**
-→ Edit `FilterCard.tsx`
-
-**Add more examples?**
-→ Edit `Demo.tsx`
-
-**Configure build?**
-→ Edit `vite.config.ts` or `tsconfig.json`
-
----
-
-## 📦 Dependencies
-
-### Production
-```json
-{
-  "react": "^18.2.0",
-  "react-dom": "^18.2.0"
-}
-```
-
-### Development
-```json
-{
-  "@types/react": "^18.2.43",
-  "@types/react-dom": "^18.2.17",
-  "@typescript-eslint/eslint-plugin": "^6.14.0",
-  "@typescript-eslint/parser": "^6.14.0",
-  "@vitejs/plugin-react": "^4.2.1",
-  "eslint": "^8.55.0",
-  "eslint-plugin-react-hooks": "^4.6.0",
-  "eslint-plugin-react-refresh": "^0.4.5",
-  "typescript": "^5.2.2",
-  "vite": "^5.0.8"
-}
-```
-
-### Why These Dependencies?
-- **React 18**: Latest stable version with concurrent features
-- **TypeScript 5**: Modern type system with latest features
-- **Vite 5**: Fast build tool with HMR
-- **ESLint**: Code quality and consistency
-- **No extras**: Only essential dependencies
-
----
-
-## ✅ Quality Checklist
-
-### Code Quality
-- ✅ TypeScript strict mode
-- ✅ No linter errors
-- ✅ No type errors
-- ✅ Clean code structure
-- ✅ Proper naming conventions
-- ✅ Comprehensive comments
-
-### Accessibility
-- ✅ WCAG 2.1 AA compliant
-- ✅ Keyboard navigation
-- ✅ Screen reader support
-- ✅ Focus management
-- ✅ ARIA attributes
-- ✅ Touch target size
-
-### Performance
-- ✅ No external dependencies (icons inline)
-- ✅ CSS animations (GPU)
-- ✅ Minimal re-renders
-- ✅ Automatic cleanup
-
-### Documentation
-- ✅ README complete
-- ✅ API documented
-- ✅ Examples provided
-- ✅ Technical specs
-- ✅ Quick start guide
-- ✅ Code comments
-
-### Testing
-- ✅ Demo page
-- ✅ Test IDs provided
-- ✅ Data attributes
-- ✅ Example tests
-- ✅ Manual testing guide
-
----
-
-## 🎯 Project Goals - All Achieved! ✅
-
-1. ✅ Create interactive filter card component
-2. ✅ Match Figma design exactly
-3. ✅ Implement three states (default, hover, selected)
-4. ✅ Add ripple effect on click
-5. ✅ Use semantic colors
-6. ✅ Build with React + TypeScript
-7. ✅ Ensure full accessibility
-8. ✅ Make responsive
-9. ✅ Provide comprehensive documentation
-10. ✅ Create demo page
-
----
-
-**Project Status: ✅ COMPLETE**
-
-All requirements met. Component is production-ready!
-
-*Last Updated: November 10, 2025*
+**Clean, organized, and ready for growth!** 📦✨
 
