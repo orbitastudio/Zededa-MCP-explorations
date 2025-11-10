@@ -1,0 +1,153 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# Zededa Component Library
+
+Welcome to the **Zededa Component Library** documentation!
+
+This Storybook showcases interactive, accessible UI components built with React and TypeScript.
+
+## 🎯 Components
+
+### FilterCard
+
+An interactive filter card component with semantic colors and full accessibility support.
+
+**Features:**
+- 🎨 Four semantic types (Critical, Alert, Info, Success)
+- ✨ Three interactive states (Default, Hover, Selected)
+- 💫 Smooth ripple animation on click
+- ⌨️ Full keyboard navigation
+- ♿ WCAG 2.1 AA compliant
+- 📱 Mobile responsive
+
+**Use Cases:**
+- Dashboard metrics
+- Alert notifications
+- Status indicators
+- Filter selections
+
+Navigate to **Components > FilterCard** in the sidebar to explore →
+
+---
+
+## 🚀 Getting Started
+
+### Installation
+
+```bash
+npm install
+```
+
+### Usage
+
+```tsx
+import FilterCard from './FilterCard';
+
+function App() {
+  return (
+    <FilterCard
+      type="critical"
+      title="4 critical alerts"
+      subtitle="Review nodes with critical alerts"
+      onClick={() => console.log('Card clicked!')}
+    />
+  );
+}
+```
+
+---
+
+## 📖 Documentation Structure
+
+### Stories
+Each component includes multiple stories:
+- **Default variants** - Individual examples
+- **All Variants** - Side-by-side comparison
+- **Interactive States** - Try the interactions
+- **Accessibility** - WCAG compliance demo
+- **Playground** - Customize with controls
+
+### Addons
+Use the addon panels below:
+- **Controls** - Edit component props live
+- **Actions** - Monitor events and callbacks
+- **Docs** - Auto-generated documentation
+- **Accessibility** - A11y violations and passes
+- **Viewport** - Test responsive behavior
+
+---
+
+## 🎨 Design System
+
+### Semantic Colors
+
+| Type | Color | Use Case |
+|------|-------|----------|
+| Critical | `#ff7f7f` | Urgent issues |
+| Alert | `#ffd86e` | Warnings |
+| Info | `#6775e4` | Information |
+| Success | `#29cf8d` | Positive metrics |
+
+### Typography
+
+- **Font Family:** DM Sans
+- **Title:** 16px / 20px line-height
+- **Subtitle:** 14px / 16px line-height
+
+### Spacing
+
+- Card padding: 16px
+- Icon padding: 12px
+- Content gap: 12px
+- Border radius: 8px
+
+---
+
+## ♿ Accessibility
+
+All components are built with accessibility in mind:
+
+✅ **Keyboard Navigation**
+- Tab to focus
+- Enter/Space to activate
+- Visual focus indicators
+
+✅ **Screen Readers**
+- Semantic HTML
+- ARIA labels and roles
+- State announcements
+
+✅ **WCAG 2.1 AA**
+- Color contrast: 4.5:1 minimum
+- Touch targets: 44x44px minimum
+- High contrast mode support
+- Reduced motion support
+
+---
+
+## 📚 Resources
+
+- [GitHub Repository](https://github.com/orbitastudio/Zededa-MCP-explorations)
+- [Component README](https://github.com/orbitastudio/Zededa-MCP-explorations#readme)
+- [Figma Design](https://www.figma.com/design/ONW7nOYixEIkUGCnUxgDwN/Zededa-UX-flows)
+
+---
+
+## 🤝 Contributing
+
+This is a component library for Zededa projects. To add new components:
+
+1. Create component files
+2. Add Storybook stories
+3. Write comprehensive tests
+4. Update documentation
+5. Submit for review
+
+---
+
+**Happy building!** 🎉
+
+Explore the components in the sidebar →
+
