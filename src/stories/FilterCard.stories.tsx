@@ -16,7 +16,7 @@ const meta = {
   argTypes: {
     type: {
       control: 'select',
-      options: ['critical', 'alert', 'info', 'success', 'notice'],
+      options: ['critical', 'alert', 'info', 'success', 'notice', 'zededa'],
       description: 'The semantic type of the card',
     },
     title: {
@@ -111,6 +111,19 @@ export const Notice: Story = {
 };
 
 /**
+ * The Zededa card represents Zededa-branded content or special items.
+ * Features a bright orange/red icon (#ff5900) with a chart symbol.
+ */
+export const Zededa: Story = {
+  args: {
+    type: 'zededa',
+    title: '60 offline nodes',
+    subtitle: 'For the last week',
+    selected: false,
+  },
+};
+
+/**
  * Selected state shows the card with its semantic color border.
  * Each card type uses its own semantic color for the selection indicator.
  */
@@ -125,7 +138,7 @@ export const Selected: Story = {
 
 /**
  * All Variants displayed side by side for comparison.
- * Shows the five semantic types: Critical, Alert, Info, Success, and Notice.
+ * Shows the six semantic types: Critical, Alert, Info, Success, Notice, and Zededa.
  */
 export const AllVariants: Story = {
   render: () => (
@@ -160,6 +173,12 @@ export const AllVariants: Story = {
         subtitle="For the last week"
         onClick={fn()}
       />
+      <FilterCard
+        type="zededa"
+        title="60 offline nodes"
+        subtitle="For the last week"
+        onClick={fn()}
+      />
     </div>
   ),
 };
@@ -175,6 +194,7 @@ export const InteractiveStates: Story = {
     const [selected3, setSelected3] = React.useState(false);
     const [selected4, setSelected4] = React.useState(false);
     const [selected5, setSelected5] = React.useState(false);
+    const [selected6, setSelected6] = React.useState(false);
 
     return (
       <div style={{ display: 'flex', gap: '24px', flexDirection: 'column', alignItems: 'center' }}>
@@ -186,7 +206,7 @@ export const InteractiveStates: Story = {
             Hover to see hover state • Click to toggle selection • Use Tab + Enter for keyboard navigation
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 312px)', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 312px)', gap: '24px' }}>
           <FilterCard
             type="critical"
             title="4 critical alerts"
@@ -221,6 +241,13 @@ export const InteractiveStates: Story = {
             subtitle="Notice variant"
             selected={selected5}
             onClick={() => setSelected5(!selected5)}
+          />
+          <FilterCard
+            type="zededa"
+            title="60 offline nodes"
+            subtitle="Zededa variant"
+            selected={selected6}
+            onClick={() => setSelected6(!selected6)}
           />
         </div>
       </div>
@@ -310,7 +337,7 @@ export const Playground: Story = {
   argTypes: {
     type: {
       control: 'select',
-      options: ['critical', 'alert', 'info', 'success', 'notice'],
+      options: ['critical', 'alert', 'info', 'success', 'notice', 'zededa'],
     },
     title: {
       control: 'text',

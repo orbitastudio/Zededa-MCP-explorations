@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback, KeyboardEvent } from 'react';
 import styles from './FilterCard.module.css';
 
-export type FilterCardType = 'critical' | 'alert' | 'info' | 'success' | 'notice';
+export type FilterCardType = 'critical' | 'alert' | 'info' | 'success' | 'notice' | 'zededa';
 
 export interface FilterCardProps {
   /** The semantic type of the card */
@@ -54,6 +54,8 @@ const FilterCard: React.FC<FilterCardProps> = ({
         return 'show_chart';
       case 'notice':
         return 'show_chart';
+      case 'zededa':
+        return 'show_chart';
       default:
         return 'error';
     }
@@ -86,6 +88,11 @@ const FilterCard: React.FC<FilterCardProps> = ({
         return {
           iconBg: styles.iconBgNotice,
           iconColor: styles.iconColorNotice,
+        };
+      case 'zededa':
+        return {
+          iconBg: styles.iconBgZededa,
+          iconColor: styles.iconColorZededa,
         };
       default:
         return {
@@ -160,6 +167,8 @@ const FilterCard: React.FC<FilterCardProps> = ({
         return styles.cardSelectedSuccess;
       case 'notice':
         return styles.cardSelectedNotice;
+      case 'zededa':
+        return styles.cardSelectedZededa;
       default:
         return styles.cardSelectedInfo;
     }

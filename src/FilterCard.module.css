@@ -53,6 +53,10 @@
   outline-color: #ffa16e;
 }
 
+.card.iconBgZededa:focus-visible {
+  outline-color: #ff5900;
+}
+
 .cardHover {
   background-color: #332f2b;
 }
@@ -80,6 +84,10 @@
 
 .cardSelectedNotice {
   box-shadow: 0 0 0 2px #ffa16e;
+}
+
+.cardSelectedZededa {
+  box-shadow: 0 0 0 2px #ff5900;
 }
 
 .content {
@@ -124,12 +132,17 @@
   background-color: #ffa16e;
 }
 
+.iconBgZededa {
+  background-color: #ff5900;
+}
+
 /* Icon Colors - Material Symbols */
 .iconColorCritical,
 .iconColorAlert,
 .iconColorInfo,
 .iconColorSuccess,
-.iconColorNotice {
+.iconColorNotice,
+.iconColorZededa {
   font-size: 24px;
   width: 24px;
   height: 24px;
@@ -158,6 +171,10 @@
 
 .iconColorNotice {
   color: #7A3200 !important;
+}
+
+.iconColorZededa {
+  color: #660000 !important;
 }
 
 /* Text Container */
