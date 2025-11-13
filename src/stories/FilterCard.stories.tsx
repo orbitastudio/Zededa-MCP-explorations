@@ -16,7 +16,7 @@ const meta = {
   argTypes: {
     type: {
       control: 'select',
-      options: ['critical', 'alert', 'info', 'success'],
+      options: ['critical', 'alert', 'info', 'success', 'notice'],
       description: 'The semantic type of the card',
     },
     title: {
@@ -98,6 +98,19 @@ export const Success: Story = {
 };
 
 /**
+ * The Notice card displays important notifications or items requiring attention.
+ * Features an orange icon (#ffa16e) with a chart symbol.
+ */
+export const Notice: Story = {
+  args: {
+    type: 'notice',
+    title: '60 offline nodes',
+    subtitle: 'For the last week',
+    selected: false,
+  },
+};
+
+/**
  * Selected state shows the card with its semantic color border.
  * Each card type uses its own semantic color for the selection indicator.
  */
@@ -112,7 +125,7 @@ export const Selected: Story = {
 
 /**
  * All Variants displayed side by side for comparison.
- * Shows the four semantic types: Critical, Alert, Info, and Success.
+ * Shows the five semantic types: Critical, Alert, Info, Success, and Notice.
  */
 export const AllVariants: Story = {
   render: () => (
@@ -141,6 +154,12 @@ export const AllVariants: Story = {
         subtitle="Click to improve CPU health"
         onClick={fn()}
       />
+      <FilterCard
+        type="notice"
+        title="60 offline nodes"
+        subtitle="For the last week"
+        onClick={fn()}
+      />
     </div>
   ),
 };
@@ -155,6 +174,7 @@ export const InteractiveStates: Story = {
     const [selected2, setSelected2] = React.useState(false);
     const [selected3, setSelected3] = React.useState(false);
     const [selected4, setSelected4] = React.useState(false);
+    const [selected5, setSelected5] = React.useState(false);
 
     return (
       <div style={{ display: 'flex', gap: '24px', flexDirection: 'column', alignItems: 'center' }}>
@@ -194,6 +214,13 @@ export const InteractiveStates: Story = {
             subtitle="Click to select"
             selected={selected4}
             onClick={() => setSelected4(!selected4)}
+          />
+          <FilterCard
+            type="notice"
+            title="60 offline nodes"
+            subtitle="Notice variant"
+            selected={selected5}
+            onClick={() => setSelected5(!selected5)}
           />
         </div>
       </div>
@@ -283,7 +310,7 @@ export const Playground: Story = {
   argTypes: {
     type: {
       control: 'select',
-      options: ['critical', 'alert', 'info', 'success'],
+      options: ['critical', 'alert', 'info', 'success', 'notice'],
     },
     title: {
       control: 'text',
