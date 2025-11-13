@@ -72,6 +72,12 @@ function Dashboard() {
       subtitle: 'Click to improve CPU health',
       action: () => navigateTo('/health/cpu'),
     },
+    {
+      type: 'notice' as const,
+      title: '60 offline nodes',
+      subtitle: 'For the last week',
+      action: () => navigateTo('/nodes/offline'),
+    },
   ];
 
   return (
@@ -115,6 +121,7 @@ function FilterPanel() {
     { id: 'alert', type: 'alert', title: 'Alerts', subtitle: 'Show all alerts' },
     { id: 'info', type: 'info', title: 'Info', subtitle: 'Show informational items' },
     { id: 'success', type: 'success', title: 'Success', subtitle: 'Show success metrics' },
+    { id: 'notice', type: 'notice', title: 'Notice', subtitle: 'Show notice items' },
   ];
 
   const handleSelect = (id: string) => {
@@ -167,6 +174,7 @@ function MultiSelectFilters() {
     { id: 'alert', type: 'alert', title: 'Alerts', subtitle: 'Include warnings' },
     { id: 'info', type: 'info', title: 'Info', subtitle: 'Include info items' },
     { id: 'success', type: 'success', title: 'Success', subtitle: 'Include success items' },
+    { id: 'notice', type: 'notice', title: 'Notice', subtitle: 'Include notice items' },
   ];
 
   const toggleSelection = (id: string) => {
@@ -611,6 +619,7 @@ describe('FilterCard Accessibility', () => {
 // ✅ Good - Type matches content
 <FilterCard type="critical" title="System Down" subtitle="Immediate action required" />
 <FilterCard type="info" title="New Features" subtitle="Check out what's new" />
+<FilterCard type="notice" title="Scheduled Maintenance" subtitle="Tomorrow at 3 AM" />
 
 // ❌ Bad - Type doesn't match content
 <FilterCard type="critical" title="Welcome" subtitle="Nice to see you" />
