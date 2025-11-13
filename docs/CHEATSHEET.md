@@ -26,7 +26,7 @@ import FilterCard from './FilterCard';
 ### Props
 ```tsx
 <FilterCard
-  type="critical"              // Required: 'critical' | 'alert' | 'info' | 'success'
+  type="critical"              // Required: 'critical' | 'alert' | 'info' | 'success' | 'notice'
   title="Your title"           // Required: string
   subtitle="Your subtitle"     // Required: string
   selected={false}             // Optional: boolean
@@ -46,6 +46,7 @@ import FilterCard from './FilterCard';
 | `alert` | Yellow | `#ffd86e` | Warnings |
 | `info` | Blue | `#6775e4` | Information |
 | `success` | Green | `#29cf8d` | Positive metrics |
+| `notice` | Orange | `#ffa16e` | Important notifications |
 
 ---
 
@@ -67,6 +68,7 @@ import FilterCard from './FilterCard';
 --alert:    #ffd86e
 --info:     #6775e4
 --success:  #29cf8d
+--notice:   #ffa16e
 ```
 
 ### Spacing
@@ -216,6 +218,7 @@ Min touch:   44px × 44px (mobile)
 .iconBgAlert      /* Yellow background */
 .iconBgInfo       /* Blue background */
 .iconBgSuccess    /* Green background */
+.iconBgNotice     /* Orange background */
 ```
 
 ---
@@ -346,6 +349,7 @@ const [filters, setFilters] = useState({
   alert: false,
   info: false,
   success: false,
+  notice: false,
 });
 
 const toggle = (key: string) => {

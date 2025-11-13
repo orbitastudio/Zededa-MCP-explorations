@@ -7,7 +7,7 @@ An interactive, accessible filter card component built with React and TypeScript
 ## 🎯 Features
 
 - ✅ **Three Interactive States**: Default, Hover, and Selected
-- ✅ **Semantic Colors**: Critical (red), Alert (yellow), Info (blue), Success (green)
+- ✅ **Semantic Colors**: Critical (red), Alert (yellow), Info (blue), Success (green), Notice (orange)
 - ✅ **Ripple Effect**: Material Design-inspired click animation
 - ✅ **Fully Accessible**: Keyboard navigation, screen reader support, ARIA labels
 - ✅ **Mobile-Friendly**: Touch targets meet accessibility guidelines (44x44px minimum)
@@ -17,7 +17,7 @@ An interactive, accessible filter card component built with React and TypeScript
 
 ## 📸 Preview
 
-The component includes four semantic variants:
+The component includes five semantic variants:
 
 | Type | Color | Use Case |
 |------|-------|----------|
@@ -25,6 +25,7 @@ The component includes four semantic variants:
 | **Alert** | `#ffd86e` | Warnings or issues requiring review |
 | **Info** | `#6775e4` | Informational updates or new items |
 | **Success** | `#29cf8d` | Positive metrics or healthy status |
+| **Notice** | `#ffa16e` | Important notifications or items requiring attention |
 
 ### States
 
@@ -82,7 +83,7 @@ function App() {
 
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `type` | `'critical' \| 'alert' \| 'info' \| 'success'` | ✅ Yes | - | The semantic type of the card |
+| `type` | `'critical' \| 'alert' \| 'info' \| 'success' \| 'notice'` | ✅ Yes | - | The semantic type of the card |
 | `title` | `string` | ✅ Yes | - | Main title text |
 | `subtitle` | `string` | ✅ Yes | - | Subtitle/description text |
 | `selected` | `boolean` | ❌ No | `false` | Whether the card is currently selected |
@@ -93,7 +94,7 @@ function App() {
 ### Type Definitions
 
 ```typescript
-export type FilterCardType = 'critical' | 'alert' | 'info' | 'success';
+export type FilterCardType = 'critical' | 'alert' | 'info' | 'success' | 'notice';
 
 export interface FilterCardProps {
   type: FilterCardType;
@@ -125,6 +126,7 @@ export interface FilterCardProps {
 --color-alert: #ffd86e;
 --color-info: #6775e4;
 --color-success: #29cf8d;
+--color-notice: #ffa16e;
 
 /* Border & Outline */
 --border-radius-card: 8px;
@@ -248,6 +250,17 @@ expect(card).toHaveAttribute('data-selected', 'true');
 ```tsx
 <FilterCard
   type="alert"
+  title="60 offline nodes"
+  subtitle="For the last week"
+  onClick={() => showOfflineNodes()}
+/>
+```
+
+### Notice Cards
+
+```tsx
+<FilterCard
+  type="notice"
   title="60 offline nodes"
   subtitle="For the last week"
   onClick={() => showOfflineNodes()}

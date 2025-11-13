@@ -25,7 +25,7 @@ The demo will automatically open in your browser at `http://localhost:3000` 🚀
 ## 3. See It in Action!
 
 You'll see:
-- ✅ Four card variants (Critical, Alert, Info, Success)
+- ✅ Five card variants (Critical, Alert, Info, Success, Notice)
 - ✅ Interactive hover effects
 - ✅ Click to select cards
 - ✅ Beautiful ripple animations

@@ -10,7 +10,7 @@ This document details how the implementation meets all requirements from the ori
 |-------------|----------------|--------|
 | Three states (Default, Hover, Selected) | CSS classes: `.card`, `.cardHover`, `.cardSelected` | ✅ Complete |
 | State switching | React state management with `useState` | ✅ Complete |
-| Semantic colors | Four types: critical, alert, info, success | ✅ Complete |
+| Semantic colors | Five types: critical, alert, info, success, notice | ✅ Complete |
 
 ### Required Interactions
 
@@ -26,7 +26,7 @@ This document details how the implementation meets all requirements from the ori
 |-------------|----------------|---------|
 | ✅ React framework | Built with React 18.2 | `package.json` |
 | ✅ Match Figma specs | Extracted from Figma design context | All color values, spacing, typography |
-| ✅ Different icons | 4 SVG components for each type | `FilterCard.tsx:5-28` |
+| ✅ Different icons | Material Symbols icons for each type | `FilterCard.tsx:44-60` |
 | ✅ Responsive | CSS Grid, flexible width | `Demo.css:114-124` |
 | ✅ Accessible | ARIA labels, keyboard nav, focus states | See below |
 | ✅ Events | `onClick` callback prop | `FilterCard.tsx:47` |
@@ -42,14 +42,15 @@ Hover:    #332f2b  ✅ Line 33, FilterCard.module.css
 Selected: #332f2b  ✅ Line 38, FilterCard.module.css
 
 // Semantic Icon Colors
-Critical: #ff7f7f  ✅ Line 65, FilterCard.module.css
-Alert:    #ffd86e  ✅ Line 69, FilterCard.module.css
-Info:     #6775e4  ✅ Line 73, FilterCard.module.css
-Success:  #29cf8d  ✅ Line 77, FilterCard.module.css
+Critical: #ff7f7f  ✅ Line 107, FilterCard.module.css
+Alert:    #ffd86e  ✅ Line 112, FilterCard.module.css
+Info:     #6775e4  ✅ Line 117, FilterCard.module.css
+Success:  #29cf8d  ✅ Line 120, FilterCard.module.css
+Notice:   #ffa16e  ✅ Line 124, FilterCard.module.css
 
 // Text Colors
-Title:    #fffcfa  ✅ Line 120, FilterCard.module.css
-Subtitle: #a7a7a7  ✅ Line 130, FilterCard.module.css
+Title:    #fffcfa  ✅ Line 160, FilterCard.module.css
+Subtitle: #a7a7a7  ✅ Line 170, FilterCard.module.css
 ```
 
 ### Typography (Exact Match)
@@ -265,25 +266,28 @@ const handleClick = (event: React.MouseEvent) => {
 
 ## 🎪 Icons Implementation
 
-### Icon Components
-**File**: `FilterCard.tsx:5-28`
+### Icon System
+**File**: `FilterCard.tsx:44-60`
 
-Four semantic SVG icon components:
-1. `ErrorIcon` - Critical alerts
-2. `EmojiObjectsIcon` - Info/ideas
-3. `ShowChartIcon` - Success/metrics
-4. `WarningChartIcon` - Alerts/warnings
+Uses Material Symbols outlined icons for each semantic type:
+1. `error` - Critical alerts
+2. `emoji_objects` - Info/ideas  
+3. `show_chart` - Success/metrics
+4. `show_chart` - Alert/warnings
+5. `show_chart` - Notice/notifications
 
 ### Icon Mapping
-**File**: `FilterCard.tsx:61-74`
+**File**: `FilterCard.tsx:44-60`
 
 ```typescript
-const getIcon = () => {
+const getIconName = () => {
   switch (type) {
-    case 'critical': return <ErrorIcon />;
-    case 'info': return <EmojiObjectsIcon />;
-    case 'success': return <ShowChartIcon />;
-    case 'alert': return <WarningChartIcon />;
+    case 'critical': return 'error';
+    case 'info': return 'emoji_objects';
+    case 'success': return 'show_chart';
+    case 'alert': return 'show_chart';
+    case 'notice': return 'show_chart';
+    default: return 'error';
   }
 };
 ```
